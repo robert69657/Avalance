@@ -82,7 +82,7 @@ col1, col2, col3 = st.columns(3)
 with col1:
     if st.button("📥 Load Dataset"):
         try:
-            st.session_state["df"] = pd.read_csv("data/customer_reviews.csv")
+            st.session_state["df"] = pd.read_csv("customer_reviews.csv")
             st.success("✅ Dataset loaded successfully!")
         except FileNotFoundError:
             st.error("❌ Could not find 'customer_reviews.csv' — make sure it exists in your project folder.")
@@ -204,5 +204,6 @@ if "df" in st.session_state:
                 st.altair_chart(chart_dist, use_container_width=True)
             else:
                 st.info("ℹ️ No sentiment data available to plot.")
+
 
 st.caption("💡 Built with Streamlit, Pandas, Altair & Google Gemini API (Average Chart Fixed)")
